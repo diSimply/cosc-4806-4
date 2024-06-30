@@ -9,6 +9,20 @@ class Reminders extends Controller {
     // Pass the reminders to the index page
     $this->view('reminders/index', ['reminders' => $list_of_reminders]);
   }
+
+  public function display_create_form() {
+    $this->view('reminders/create');
+  }
+  
+  // CRUD - Create , Read, Update, Delete (Passing the http request to the model)
+  public function create_reminder(){
+    $user_id = $_SESSION['user_id'];
+    $subject = $_REQUEST['subject'];
+    $reminder = $this->model('Reminder');
+    $reminder->create_reminder($user_id, $subject);
+    // redirect to the index page
+    header('Location: /reminders');
+  }
 }
 
 ?>
