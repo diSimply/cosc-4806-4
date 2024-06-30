@@ -1,6 +1,6 @@
 <?php require_once 'app/views/templates/header.php' ?>
 <div class="container">
-  <div class="page-header" id="banner">
+  <div class="page-header mt-3" id="banner">
     <div class="row">
       <div class="col-9">
          <h1>Reminders</h1>
@@ -32,5 +32,5 @@
     </tbody>
   </table>
   <!-- Data rows  -->
+  <?php require_once 'app/views/templates/footer.php' ?>
 </div>
-<?php require_once 'app/views/templates/footer.php' ?>
