@@ -35,6 +35,13 @@ class Reminder{
     $row = $statement->fetch(PDO::FETCH_ASSOC);
     return $row;
   }
+
+  public function delete_reminder($id){
+    $db = db_connect();
+    $statement = $db->prepare("delete from reminders where id = :id;");
+    $statement->bindValue(':id', $id);
+    $statement->execute();
+  } 
 }
 
 

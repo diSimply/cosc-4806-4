@@ -38,6 +38,14 @@ class Reminders extends Controller {
     $reminder->update_reminder($reminder_id, $_REQUEST['subject']);
     header('Location: /reminders');
   }
+  
+  public function delete_reminder($params){
+    $reminder_id = $params;
+    $reminder = $this->model('Reminder');
+    $reminder->delete_reminder($reminder_id);
+    header('Location: /reminders');
+  }
+
 }
 
 ?>
