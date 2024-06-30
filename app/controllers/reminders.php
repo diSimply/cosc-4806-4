@@ -23,6 +23,21 @@ class Reminders extends Controller {
     // redirect to the index page
     header('Location: /reminders');
   }
+
+  public function display_update_form($params) {
+    $reminder_id = $params;
+    // fetches the reminder from the database
+    $reminder = $this->model('Reminder');
+    $row = $reminder->get_reminder($reminder_id);
+    $this->view('reminders/update', ['reminder_id' => $reminder_id, 'subject' => $row['subject']]);
+  }
+
+  public function update_reminder($params){
+    $reminder_id = $params;
+    $reminder = $this->model('Reminder');
+    $reminder->update_reminder($reminder_id, $_REQUEST['subject']);
+    header('Location: /reminders');
+  }
 }
 
 ?>
